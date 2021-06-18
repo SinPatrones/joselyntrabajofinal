@@ -1,8 +1,11 @@
+const UserModel = require('../models/users.model');
 
 class UsersControllers {
 
-    static getAllUsers(req, res){
-        res.send("Obteniendo usuarios");
+    static async getAllUsers(req, res){
+        const usersList = await UserModel.getAllUsers();
+
+        res.render('users/listusers', {users: usersList});
     }
 
 }
