@@ -13,7 +13,19 @@ class UserModel{
                 }
             });
         });
+    }
 
+    static registerNewUser(username, password){
+        return new Promise((resolve, reject) => {
+            connection.query("INSERT INTO user(username,password) VALUES(?, ?)", [username, password], function(err, rows, fields) {
+                if (err){
+                    console.log("ERROR", err);
+                    return reject(err);
+                } else {
+                    return resolve(rows);
+                }
+            });
+        });
     }
 
 }

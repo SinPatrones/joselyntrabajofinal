@@ -12,6 +12,19 @@
     <% for(let idx = 0; idx < users.length; idx++){ %>
         <li> <%= users[idx].username %></li>
     <%}%>
+
+        <hr>
+        <form action="/users/signin" method="post">
+            <label for="username">Username</label>
+            <br>
+            <input type="text" id="username" name="username">
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input type="password" id="password" name="password">
+            <br><br>
+            <button type="submit">REGISTRAR</button>
+        </form>
 </ul>
 </body>
 </html>
